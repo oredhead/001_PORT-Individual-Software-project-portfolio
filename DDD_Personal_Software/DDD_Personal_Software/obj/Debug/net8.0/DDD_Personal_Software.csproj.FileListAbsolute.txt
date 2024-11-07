@@ -1,0 +1,15 @@
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\bin\Debug\net8.0\DDD_Personal_Software.exe
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\bin\Debug\net8.0\DDD_Personal_Software.deps.json
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\bin\Debug\net8.0\DDD_Personal_Software.runtimeconfig.json
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\bin\Debug\net8.0\DDD_Personal_Software.dll
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\bin\Debug\net8.0\DDD_Personal_Software.pdb
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.AssemblyInfoInputs.cache
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.AssemblyInfo.cs
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.csproj.CoreCompileInputs.cache
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.sourcelink.json
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.dll
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\refint\DDD_Personal_Software.dll
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.pdb
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\DDD_Personal_Software.genruntimeconfig.cache
+C:\Users\oredh\source\repos\001_PORT-Individual-Software-project-portfolio\DDD_Personal_Software\DDD_Personal_Software\obj\Debug\net8.0\ref\DDD_Personal_Software.dll
