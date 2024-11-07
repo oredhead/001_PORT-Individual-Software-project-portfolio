@@ -74,25 +74,29 @@ void SelectUserType(UserManager manager)
         string selection = Console.ReadLine();
         if (selection == "1")
         {
+            pass = true;
             StudentLogin(manager);
         }
         else if (selection == "2")
         {
+            pass = true;
             PersonalSupervisorLogin(manager);
         }
         else if (selection == "3")
         {
+            pass = true;
             SeniorTutorLogin(manager);
         }
         else if (selection == "4")
         {
+            pass = true;
             RegisterNewUser(manager);
         }
         else if (selection == "5")
         {
+            pass = true;
             Environment.Exit(0);
         }
-        else { }
     }
     
 }
@@ -111,19 +115,16 @@ void StudentLogin(UserManager manager)
         {
             if (student.Forename == user && student.Password == password)
             {
+                pass = true;
                 StudentMainMenu(manager, student);
             }
         }
-        Console.WriteLine("Invalid student name or password");
-        Console.ReadLine();
     }
     
 }
 void StudentMainMenu(UserManager manager, Student student)
 {
-    bool pass = false;
-    while (!pass)
-    {
+    
         Console.Clear();
         Console.WriteLine($"Hello, {student.Forename}! What would you like to do? (Please select an option between 1 and 4 inclusive)");
         Console.WriteLine("1:Check your information");
@@ -133,26 +134,22 @@ void StudentMainMenu(UserManager manager, Student student)
         string selection = (Console.ReadLine());
         if (selection == "1")
         {
-            pass = true;
             DisplayStudentInfo(manager, student);
         }
         else if (selection == "2")
         {
-            pass = true;
             //WriteReport(manager, student);
         }
         else if (selection == "3")
         {
-            pass = true;
             BookAppointmentStudent(manager, student);
         }
         else if (selection == "4")
         {
-            pass = true;
             SelectUserType(manager);
         }
-        else { }
-    }
+        else { Console.WriteLine("Invalid name or password"); StudentMainMenu(manager, student); }
+    
     
 }
 void DisplayStudentInfo(UserManager manager, Student student)
@@ -169,6 +166,48 @@ void DisplayStudentInfo(UserManager manager, Student student)
 void BookAppointmentStudent(UserManager manager, Student student)
 {
     Console.Clear();
+    string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\Users Info\Bookings.txt"));
+    string selectTime = "08:00";
+    Console.WriteLine("Please select an appointment time (1 to 10 inclusive)");
+    Console.WriteLine("1:08:00");
+    Console.WriteLine("2:09:00");
+    Console.WriteLine("3:10:00");
+    Console.WriteLine("4:11:00");
+    Console.WriteLine("5:12:00");
+    Console.WriteLine("6:13:00");
+    Console.WriteLine("7:14:00");
+    Console.WriteLine("8:15:00");
+    Console.WriteLine("9:16:00");
+    Console.WriteLine("10:17:00");
+    string select = Console.ReadLine();
+    if (select == "1")
+    {
+        selectTime = "08:00";
+    }
+
+    foreach (PersonalSupervisor supervisor in manager.PersonalSupervisors)
+    {
+        if (student.Supervisor == supervisor)
+        {
+            foreach (Booking booking in supervisor.Bookings)
+            {
+                if (booking.BookingTime == selectTime)
+                {
+                    Console.WriteLine("Sorry, this time is unavailable, please try another");
+                    Console.ReadLine();
+                    BookAppointmentStudent(manager, student);
+                }
+                else { break; }
+            }
+        }
+    }
+
+    Booking newBooking = new Booking(student, student.Supervisor, selectTime);
+    StreamWriter sw = File.AppendText(path);
+    sw.WriteLine($"{student.StudentID},{student.Supervisor.ID},{newBooking.BookingTime}");
+    Console.WriteLine($"Successfully booked a meeting with {student.Supervisor.Forename} at {newBooking.BookingTime}");
+    sw.Close();
+
 }
 #endregion
 #region // All personal supervisor based interaction
@@ -250,4 +289,6 @@ void RegisterNewSt(UserManager manager)
 }
 #endregion
 #endregion
+
+//Start the program
 SelectUserType(manager);
