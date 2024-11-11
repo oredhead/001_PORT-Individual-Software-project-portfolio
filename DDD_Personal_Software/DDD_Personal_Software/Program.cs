@@ -104,23 +104,20 @@ void SelectUserType(UserManager manager)
 #region // All student based interaction
 void StudentLogin(UserManager manager)
 {
-    bool pass = false;
-    while (!pass)
+    Console.Clear();
+    Console.WriteLine("Please enter your first name, followed by your password (case sensitive)");
+    string user = Console.ReadLine();
+    string password = Console.ReadLine();
+    foreach (Student student in manager.Students)
     {
-        Console.Clear();
-        Console.WriteLine("Please enter your first name, followed by your password (case sensitive)");
-        string user = Console.ReadLine();
-        string password = Console.ReadLine();
-        foreach (Student student in manager.Students)
+        if (student.Forename == user && student.Password == password)
         {
-            if (student.Forename == user && student.Password == password)
-            {
-                pass = true;
-                StudentMainMenu(manager, student);
-            }
+            StudentMainMenu(manager, student);
         }
+        else { Console.WriteLine("Invalid username or password,press anything to continue"); Console.ReadLine(); StudentLogin(manager); }
     }
-    
+
+
 }
 void StudentMainMenu(UserManager manager, Student student)
 {
@@ -138,7 +135,7 @@ void StudentMainMenu(UserManager manager, Student student)
         }
         else if (selection == "2")
         {
-            //WriteReport(manager, student);
+            WriteReport(manager, student);
         }
         else if (selection == "3")
         {
@@ -162,6 +159,15 @@ void DisplayStudentInfo(UserManager manager, Student student)
     Console.WriteLine("Press anything to go back...");
     Console.ReadLine();
     StudentMainMenu(manager, student);
+}
+void WriteReport(UserManager manager, Student student)
+{
+    Console.Clear();
+    string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\Users Info"));
+    string[] scores = { "1", "2", "3", "4", "5" };
+    Console.WriteLine("How satisfied are you with your course so far? (1-5 inclusive)");
+    var courseScore = Console.ReadLine();
+    
 }
 void BookAppointmentStudent(UserManager manager, Student student)
 {
