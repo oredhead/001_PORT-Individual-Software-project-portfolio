@@ -166,7 +166,9 @@ void DisplayStudentInfo(UserManager manager, Student student)
 void BookAppointmentStudent(UserManager manager, Student student)
 {
     Console.Clear();
+    string currentTime = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
     string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\Users Info\Bookings.txt"));
+    String logPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\Users Info\ActivityLog.txt"));
     string selectTime = "08:00";
     Console.WriteLine("Please select an appointment time (1 to 10 inclusive)");
     Console.WriteLine("1:08:00");
@@ -179,11 +181,48 @@ void BookAppointmentStudent(UserManager manager, Student student)
     Console.WriteLine("8:15:00");
     Console.WriteLine("9:16:00");
     Console.WriteLine("10:17:00");
-    string select = Console.ReadLine();
+    var select = Console.ReadLine();
     if (select == "1")
     {
         selectTime = "08:00";
     }
+    else if (select == "2")
+    {
+        selectTime = "09:00";
+    }
+    else if (select == "3")
+    {
+        selectTime = "10:00";
+    }
+    else if (select == "4")
+    {
+        selectTime = "11:00";
+    }
+    else if (select == "5")
+    {
+        selectTime = "12:00";
+    }
+    else if (select == "6")
+    {
+        selectTime = "13:00";
+    }
+    else if (select == "7")
+    {
+        selectTime = "14:00";
+    }
+    else if (select == "8")
+    {
+        selectTime = "15:00";
+    }
+    else if (select == "9")
+    {
+        selectTime = "16:00";
+    }
+    else if (select == "10")
+    {
+        selectTime = "17:00";
+    }
+    else { Console.WriteLine("Invalid selection, press anything to continue..."); Console.ReadLine(); BookAppointmentStudent(manager,student); }
 
     foreach (PersonalSupervisor supervisor in manager.PersonalSupervisors)
     {
@@ -204,10 +243,12 @@ void BookAppointmentStudent(UserManager manager, Student student)
 
     Booking newBooking = new Booking(student, student.Supervisor, selectTime);
     StreamWriter sw = File.AppendText(path);
+    StreamWriter logsw = File.AppendText(logPath);
     sw.WriteLine($"{student.StudentID},{student.Supervisor.ID},{newBooking.BookingTime}");
+    logsw.WriteLine($"{student.Forename} {student.Surname} ID:{student.StudentID} has booked an appointment with supervisor {student.Supervisor.Forename} {student.Supervisor.Surname} ID:{student.Supervisor.ID} for {selectTime} at {currentTime}");
     Console.WriteLine($"Successfully booked a meeting with {student.Supervisor.Forename} at {newBooking.BookingTime}");
     sw.Close();
-
+    logsw.Close();
 }
 #endregion
 #region // All personal supervisor based interaction

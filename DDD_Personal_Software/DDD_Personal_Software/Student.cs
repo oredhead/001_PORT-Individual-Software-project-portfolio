@@ -46,5 +46,18 @@ namespace DDD_Personal_Software
         }
     }
 
-
+    internal class SeniorTutor
+    {
+        public string Forename { get; set; }
+        public string Surname { get; set; }
+        public int ID { get; set; }
+        public List<Student> Students { get; set; }
+        public SeniorTutor(string aForename,string aSurname,int aID)
+        {
+            this.Forename = aForename;
+            this.Surname = aSurname;
+            this.ID = aID;
+            this.Students = new List<Student>();
+        }
+    }
 }
