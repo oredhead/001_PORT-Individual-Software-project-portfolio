@@ -114,8 +114,10 @@ void StudentLogin(UserManager manager)
         {
             StudentMainMenu(manager, student);
         }
-        else { Console.WriteLine("Invalid username or password,press anything to continue"); Console.ReadLine(); StudentLogin(manager); }
     }
+    Console.WriteLine("Invalid username or password,press anything to continue"); 
+    Console.ReadLine(); 
+    StudentLogin(manager);
 
 
 }
@@ -167,6 +169,7 @@ void WriteReport(UserManager manager, Student student)
     string[] scores = { "1", "2", "3", "4", "5" };
     Console.WriteLine("How satisfied are you with your course so far? (1-5 inclusive)");
     var courseScore = Console.ReadLine();
+
     
 }
 void BookAppointmentStudent(UserManager manager, Student student)
